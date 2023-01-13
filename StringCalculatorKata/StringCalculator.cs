@@ -19,8 +19,9 @@ namespace StringCalculatorKata
             string delimiter = ",";
             if (numbers.StartsWith("//["))
             {
-                delimiter = numbers[3].ToString();
-                strNumbers = numbers.Substring(numbers.IndexOf("\n") + 1);
+                var endline = numbers.IndexOf("\n");
+                delimiter = numbers.Substring(3, endline - 1 - 3);
+                strNumbers = numbers.Substring(endline + 1);
             }
 
             var groups = strNumbers.Split("\n").ToList();
