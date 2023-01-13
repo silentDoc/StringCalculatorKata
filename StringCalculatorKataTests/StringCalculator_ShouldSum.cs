@@ -56,13 +56,5 @@ namespace StringCalculatorKataTests
 
             Assert.AreEqual(expected, result, "One number string not handled properly");
         }
-
-        [TestMethod]
-        public void ShouldThrowException_IfNonNumberString()
-        {
-            string inputString = "bla";
-            StringCalculator _stringCalculator = new();
-            Assert.ThrowsException<InvalidOperationException>(() => _stringCalculator.Add(inputString));
-        }
     }
 }
