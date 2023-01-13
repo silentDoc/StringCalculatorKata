@@ -42,7 +42,7 @@ namespace StringCalculatorKataTests
         }
 
         [DataTestMethod]
-        [DataRow("1000\n2,3", 1006)]
+        [DataRow("1000\n2,3", 1005)]
         [DataRow("1001\n2,3", 5)]
         [DataRow("1001,10002,3000009, 1", 1)]
         [DataRow("1001,10002,3000009, 1111", 0)]

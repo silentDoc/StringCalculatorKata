@@ -33,6 +33,8 @@ namespace StringCalculatorKata
                 nums.AddRange(nums_in_row);
             }
 
+            nums = nums.Select(x => (x > 1000) ? 0 : x).ToList();
+
             if (nums.Any(x => x < 0))
             {
                 var numEx = string.Join(",", nums.Where(x => x < 0).Select(x => x.ToString()).ToList());
