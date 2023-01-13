@@ -1,4 +1,5 @@
 ## StringCalculator TDD Kata
+From Roy Osherove - [String Calculator TDD Kata](https://osherove.com/tdd-kata-1)
 ### Before you start:
 
 -   Try not to read ahead.
@@ -15,7 +16,7 @@
     int Add(string numbers)
     ```
     The method can take up to two numbers, separated by commas, and will return their sum. 
-    for example “” or “1” or “1,2” as inputs.  (for an empty string it will return 0) 
+    for example â€œâ€ or â€œ1â€ or â€œ1,2â€ as inputs.  (for an empty string it will return 0) 
    
     Hints:
      - Start with the simplest test case of an empty string and move to one and two numbers
@@ -28,21 +29,21 @@
 3.  Allow the Add method to handle new lines between numbers (instead of commas).
 	 ```
     - The following input is ok: 1\n2,3 (will equal 6)
-    - The following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
+    - The following input is NOT ok: â€œ1,\nâ€ (not need to prove it - just clarifying)
 	 ```        
 
 4. Support different delimiters:
     ```
     - To change a delimiter, the beginning of the string will contain a separate line that looks like this:
-    -  “//[delimiter]\n[numbers…]” for example “//;\n1;2” should return three where the default delimiter is ‘;’ .
+    -  â€œ//[delimiter]\n[numbersâ€¦]â€ for example â€œ//;\n1;2â€ should return three where the default delimiter is â€˜;â€™ .
     - The first line is optional. all existing scenarios should still be supported
     ```
     
-5.  Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed. If there are multiple negatives, show all of them in the exception message.
+5.  Calling Add with a negative number will throw an exception â€œnegatives not allowedâ€ - and the negative that was passed. If there are multiple negatives, show all of them in the exception message.
     
     **STOP HERE if you are a beginner. Continue if you can finish the steps so far in less than 30 minutes.**
     
 6.  Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
-7.  Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6    
-8.  Allow multiple delimiters like this: “//[delim1][delim2]\n” for example “//[*][%]\n1*2%3” should return 6.
+7.  Delimiters can be of any length with the following format: â€œ//[delimiter]\nâ€ for example: â€œ//[***]\n1***2***3â€ should return 6    
+8.  Allow multiple delimiters like this: â€œ//[delim1][delim2]\nâ€ for example â€œ//[*][%]\n1*2%3â€ should return 6.
 9.  Make sure you can also handle multiple delimiters with length longer than one char
