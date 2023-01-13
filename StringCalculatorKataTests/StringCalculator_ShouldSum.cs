@@ -50,10 +50,7 @@ namespace StringCalculatorKataTests
         {
             string inputString = "bla";
             StringCalculator _stringCalculator = new();
-
-            int result = _stringCalculator.Add(inputString);
-
-            Assert.ThrowsException<System.InvalidOperationException>(() => _stringCalculator.Add(inputString));
+            Assert.ThrowsException<InvalidOperationException>(() => _stringCalculator.Add(inputString));
         }
     }
 }
