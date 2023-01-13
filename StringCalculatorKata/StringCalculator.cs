@@ -15,24 +15,10 @@ namespace StringCalculatorKata
                 return 0;
 
             var groups = numbers.Split(",");
+            
+            var nums = groups.Select(x => int.Parse(x));
+            return nums.Sum();
 
-            if (groups.Count() == 1)
-            {
-                int number = 0;
-                if (!int.TryParse(groups[0], out number))
-                    throw new InvalidOperationException();
-                else return number;
-            }
-            else
-            {
-                int num1 = 0;
-                int num2 = 0;
-                if (!int.TryParse(groups[0], out num1))
-                    throw new InvalidOperationException();
-                if (!int.TryParse(groups[1], out num2))
-                    throw new InvalidOperationException();
-                return num1+num2;
-            }
         }
     }
 }
