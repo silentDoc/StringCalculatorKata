@@ -61,7 +61,17 @@ namespace StringCalculatorKataTests
         [DataRow("1\n2,3", 6)]
         [DataRow("1\n2,3\n4,5,6", 21)]
         [DataRow("1\n2\n3\n4", 10)]
-        public void ShouldHandleNewLine_IfEmptyString(string input, int expected)
+        public void ShouldHandleNewLineDelimiter(string input, int expected)
+        {
+            StringCalculator _stringCalculator = new();
+            int result = _stringCalculator.Add(input);
+            Assert.AreEqual(expected, result, "Empty string not handled properly");
+        }
+
+        [DataTestMethod]
+        [DataRow("//[+]\n1+3+5", 9)]
+        [DataRow("//[;]\n1;3", 4)]
+        public void ShouldHandleCustomDelimiter(string input, int expected)
         {
             StringCalculator _stringCalculator = new();
             int result = _stringCalculator.Add(input);

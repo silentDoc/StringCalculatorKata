@@ -25,7 +25,6 @@ namespace StringCalculatorKata
             }
             
             return nums.Sum();
-
         }
     }
 }
