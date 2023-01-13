@@ -16,6 +16,18 @@ namespace StringCalculatorKataTests
 
             Assert.AreEqual(expected, result, "Two number string not handled properly");
         }
+
+        [TestMethod]
+        public void ShouldReturnSum_IfManyNumberString()
+        {
+            string inputString = "19,27,4,25,12";
+            int expected = 87;
+            StringCalculator _stringCalculator = new();
+
+            int result = _stringCalculator.Add(inputString);
+
+            Assert.AreEqual(expected, result, "Two number string not handled properly");
+        }
     }
     
     [TestClass]
