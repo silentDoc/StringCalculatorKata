@@ -11,15 +11,24 @@ namespace StringCalculatorKata
     {
         public int Add(string numbers)
         {
+            string strNumbers = numbers;
+
             if (string.IsNullOrEmpty(numbers))
                 return 0;
 
-            var groups = numbers.Split("\n").ToList();
+            string delimiter = ",";
+            if (numbers.StartsWith("//["))
+            {
+                delimiter = numbers[3].ToString();
+                strNumbers = numbers.Substring(numbers.IndexOf("\n") + 1);
+            }
+
+            var groups = strNumbers.Split("\n").ToList();
             List<int> nums = new();
 
             foreach(var group in groups) 
             {
-                var numGroup = group.Split(",", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                var numGroup = group.Split(delimiter, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
                 var nums_in_row = numGroup.Select(x => int.Parse(x)).ToList();
                 nums.AddRange(nums_in_row);
             }
