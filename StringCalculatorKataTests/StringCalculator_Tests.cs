@@ -38,7 +38,18 @@ namespace StringCalculatorKataTests
 
             int result = _stringCalculator.Add(inputString);
 
-            Assert.AreEqual(expected, result, "Two number string not handled properly");
+            Assert.AreEqual(expected, result, "Many number string not handled properly");
+        }
+
+        [DataTestMethod]
+        [DataRow("1000\n2,3", 1006)]
+        [DataRow("1001\n2,3", 5)]
+        [DataRow("1001,10002,3000009, 1", 1)]
+        public void ShouldIgnoreBiggerThan1000(string input, int expected)
+        {
+            StringCalculator _stringCalculator = new();
+            int result = _stringCalculator.Add(input);
+            Assert.AreEqual(expected, result, "Greater than 1000 not handled properly");
         }
     }
     
@@ -56,7 +67,6 @@ namespace StringCalculatorKataTests
 
             Assert.AreEqual(expected, result, "Empty string not handled properly");
         }
-        
 
         [DataTestMethod]
         [DataRow("1\n2,3", 6)]
@@ -66,7 +76,7 @@ namespace StringCalculatorKataTests
         {
             StringCalculator _stringCalculator = new();
             int result = _stringCalculator.Add(input);
-            Assert.AreEqual(expected, result, "Empty string not handled properly");
+            Assert.AreEqual(expected, result, "New Line delimiter not handled properly");
         }
 
         [DataTestMethod]
@@ -76,7 +86,7 @@ namespace StringCalculatorKataTests
         {
             StringCalculator _stringCalculator = new();
             int result = _stringCalculator.Add(input);
-            Assert.AreEqual(expected, result, "Empty string not handled properly");
+            Assert.AreEqual(expected, result, "Custom Delimiter not handled properly");
         }
 
         [DataTestMethod]
