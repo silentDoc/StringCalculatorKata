@@ -83,6 +83,8 @@ namespace StringCalculatorKataTests
         [DataTestMethod]
         [DataRow("//[+]\n1+3+5", 9)]
         [DataRow("//[;]\n1;3", 4)]
+        [DataRow("//[***]\n1***3", 4)]
+        [DataRow("//[aba]\n1aba3aba6aba5", 15)]
         public void ShouldHandleCustomDelimiter(string input, int expected)
         {
             StringCalculator _stringCalculator = new();
