@@ -14,9 +14,16 @@ namespace StringCalculatorKata
             if (string.IsNullOrEmpty(numbers))
                 return 0;
 
-            var groups = numbers.Split(",");
+            var groups = numbers.Split("\n").ToList();
+            List<int> nums = new();
+
+            foreach(var group in groups) 
+            {
+                var numGroup = group.Split(",", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+                var nums_in_row = numGroup.Select(x => int.Parse(x)).ToList();
+                nums.AddRange(nums_in_row);
+            }
             
-            var nums = groups.Select(x => int.Parse(x));
             return nums.Sum();
 
         }
