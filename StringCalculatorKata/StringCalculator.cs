@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -20,8 +21,18 @@ namespace StringCalculatorKata
             if (numbers.StartsWith("//["))
             {
                 var endline = numbers.IndexOf("\n");
-                delimiter = numbers.Substring(3, endline - 1 - 3);
+                var delimiterline = numbers.Substring(0, endline);
                 strNumbers = numbers.Substring(endline + 1);
+
+                Regex regex = new Regex(@"(\[[^\[\]]+\])");
+                var regexGroups = regex.Matches(delimiterline).ToList();
+                
+                List<string> delimiters = new List<string>();
+                foreach (var group in regexGroups)
+                    delimiters.Add(group.Value.Replace("[","").Replace("]", ""));
+
+                foreach (var customDelimiter in delimiters)
+                    strNumbers = strNumbers.Replace(customDelimiter, ",");
             }
 
             var groups = strNumbers.Split("\n").ToList();

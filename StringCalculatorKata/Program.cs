@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            StringCalculator sc = new();
+            sc.Add("//[+][;][*]\n1+3;5*6*10");
         }
     }
 }
