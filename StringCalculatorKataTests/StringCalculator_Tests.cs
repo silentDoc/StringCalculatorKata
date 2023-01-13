@@ -82,7 +82,6 @@ namespace StringCalculatorKataTests
         [DataTestMethod]
         [DataRow("//[+]\n1+3+-5", "Negatives not allowed -5")]
         [DataRow("-1,-3,-2", "Negatives not allowed -1,-3,-2")]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void ShouldThrowException_IfNegativeNum(string input, string expected)
         {
             StringCalculator _stringCalculator = new();
@@ -94,7 +93,6 @@ namespace StringCalculatorKataTests
             {
                 StringAssert.Contains(io_ex.Message, expected);
             }
-            
         }
 
     }

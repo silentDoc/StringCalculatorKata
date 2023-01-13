@@ -32,7 +32,13 @@ namespace StringCalculatorKata
                 var nums_in_row = numGroup.Select(x => int.Parse(x)).ToList();
                 nums.AddRange(nums_in_row);
             }
-            
+
+            if (nums.Any(x => x < 0))
+            {
+                var numEx = string.Join(",", nums.Where(x => x < 0).Select(x => x.ToString()).ToList());
+                throw new InvalidOperationException("Negatives not allowed " + numEx);
+            }
+
             return nums.Sum();
         }
     }
