@@ -93,6 +93,17 @@ namespace StringCalculatorKataTests
         }
 
         [DataTestMethod]
+        [DataRow("//[+][;][*]\n1+3;5*6*10", 25)]
+        [DataRow("//[*][%]\n1*2%3", 6)]
+        [DataRow("//[*][%]\n1*2\n4%3", 10)]
+        public void ShouldHandleMultipleCustomDelimiter(string input, int expected)
+        {
+            StringCalculator _stringCalculator = new();
+            int result = _stringCalculator.Add(input);
+            Assert.AreEqual(expected, result, "Custom Delimiter not handled properly");
+        }
+
+        [DataTestMethod]
         [DataRow("//[+]\n1+3+-5", "Negatives not allowed -5")]
         [DataRow("-1,-3,-2", "Negatives not allowed -1,-3,-2")]
         public void ShouldThrowException_IfNegativeNum(string input, string expected)
