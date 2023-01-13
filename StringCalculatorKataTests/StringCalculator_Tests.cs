@@ -96,6 +96,8 @@ namespace StringCalculatorKataTests
         [DataRow("//[+][;][*]\n1+3;5*6*10", 25)]
         [DataRow("//[*][%]\n1*2%3", 6)]
         [DataRow("//[*][%]\n1*2\n4%3", 10)]
+        [DataRow("//[*][aaa]\n1*2\n4aaa3", 10)]
+        [DataRow("//[++][;;][***]\n1++3;;5***6***10", 25)]
         public void ShouldHandleMultipleCustomDelimiter(string input, int expected)
         {
             StringCalculator _stringCalculator = new();
