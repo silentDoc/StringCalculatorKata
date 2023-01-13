@@ -45,6 +45,7 @@ namespace StringCalculatorKataTests
         [DataRow("1000\n2,3", 1006)]
         [DataRow("1001\n2,3", 5)]
         [DataRow("1001,10002,3000009, 1", 1)]
+        [DataRow("1001,10002,3000009, 1111", 0)]
         public void ShouldIgnoreBiggerThan1000(string input, int expected)
         {
             StringCalculator _stringCalculator = new();
