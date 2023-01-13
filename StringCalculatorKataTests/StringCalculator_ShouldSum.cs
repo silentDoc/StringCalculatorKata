@@ -56,5 +56,17 @@ namespace StringCalculatorKataTests
 
             Assert.AreEqual(expected, result, "One number string not handled properly");
         }
+
+        [DataTestMethod]
+        [DataRow("1\n2,3", 6)]
+        [DataRow("1\n2,3\n4,5,6", 21)]
+        [DataRow("1\n2\n3\n4", 10)]
+        public void ShouldHandleNewLine_IfEmptyString(string input, int expected)
+        {
+            StringCalculator _stringCalculator = new();
+            int result = _stringCalculator.Add(input);
+            Assert.AreEqual(expected, result, "Empty string not handled properly");
+        }
+
     }
 }
